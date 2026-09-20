@@ -570,6 +570,8 @@ def choose_filter(b):
         cand=[]
         for _,fid in scored[:5]:
             if fid not in cand: cand.append(fid)
+        for fid in (7,8,9,2,15):  # lane/stride filters the short-prefix proxy underrates on long-period data
+            if fid<len(_FSPECS) and fid not in cand: cand.append(fid)
         bc=None
         for fid in cand:
             fb=b if fid==0 else apply_filter(b,fid)

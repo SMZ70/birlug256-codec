@@ -34,3 +34,7 @@ python codec.py decompress out.bin roundtrip.bin
 
 Round trip is byte exact. Grading uses the official Docker scorer in
 `evaluate.py`.
+
+## Build note
+
+`solution/p` is the minified build of `codec.py` (via python-minifier), lzma-compressed. The scorer only counts the `solution/` folder. Verified byte-exact round trip; local score 3,051,674 (compressed 3,038,842 + code 12,832).
